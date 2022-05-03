@@ -6,9 +6,12 @@ import FileHound from "filehound";
 
 const cd = cwd();
 const configPath = join(cd, "build.ts");
-const defaultConfig = `export default function () {
-    //  config operations here
-    console.log("edit this");
+const defaultConfig = `
+import { Builder } from "@sweetacid/mei";
+
+export default function (builder: Builder) {
+  //    config operations here
+  console.log("Build successful.");
 }
 `;
 
@@ -73,9 +76,12 @@ class DefaultBuilder implements Builder {
 
 const runningAsScript = require.main === module;
 if (runningAsScript) {
-  if (!existsSync(configPath)) writeFileSync(configPath, defaultConfig);
+  if (!existsSync(configPath)) {
+    writeFileSync(configPath, defaultConfig);
+    console.log("[ CREATED ]", configPath);
+  }
 
-  const config = require("./build.ts");
+  const config = require(configPath);
   if (typeof config.default !== "function") process.exit(1);
 
   config.default(new DefaultBuilder());
