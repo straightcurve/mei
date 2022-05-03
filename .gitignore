@@ -4,3 +4,4 @@ package-lock.json
 *.o
 *.a
 *.out
+dist/
