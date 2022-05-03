@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.ts",
   "bin": {
-    "mei": "./cli.js"
+    "mei": "./index.ts"
   },
   "keywords": [],
   "author": "Sweet Acid",
