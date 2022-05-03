@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env ts-node
 
 const { spawnSync } = require("child_process");
 const { join } = require("path");
