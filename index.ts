@@ -1,3 +1,5 @@
+#!/usr/bin/env ts-node
+
 import { spawnSync } from "child_process";
 import { existsSync, writeFileSync } from "fs";
 import { join } from "path";
