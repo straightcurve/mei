@@ -91,7 +91,9 @@ class Executable extends BaseProject {
     const systemLibs = this.linkedLibs.filter(isSystemLib);
     const localLibs = this.linkedLibs.filter(isLocalLib).map((l) => `lib${l}`);
 
-    let cmd = [this.sources.join(" "), localLibs.join(" ")];
+    let cmd = [this.sources.join(" ")];
+
+    if (localLibs.length > 0) cmd.push(localLibs.join(" "));
 
     if (this.compileDefinitions.length > 0)
       cmd.push(this.compileDefinitions.map((d) => `-D${d}`).join(" "));
