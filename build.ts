@@ -3,23 +3,17 @@ import { Builder } from "./index";
 export default async function (builder: Builder) {
   await builder
     .addLibrary("test-lib")
-    .addFile("**/*.h")
-    .addFile("**/*.cpp")
-    .define("USE_IMGUI")
-    .define("USE_RAYLIB_RENDERER")
-    .define("HELLO")
-    .include("extra/include")
+    .addDirectory("test/extra")
+    .define("EXTRA_USE_LOGGING")
     .link("imgui")
     .build();
 
   await builder
     .addExecutable("test-exe")
-    .addFile("**/*.h")
-    .addFile("**/*.cpp")
-    .define("USE_IMGUI")
-    .define("USE_RAYLIB_RENDERER")
+    .addDirectory("test/exe")
     .define("HELLO")
-    .include("extra/include")
+    .include("test/extra/include")
     .link("imgui")
+    .link("test-lib")
     .build();
 }

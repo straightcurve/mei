@@ -18,6 +18,9 @@ export default function (builder: Builder) {
 `;
 
 export interface Project {
+  name: string;
+
+  addDirectory(path: string): Project;
   addFile(path: string): Project;
   define(name: string): Project;
   include(path: string): Project;
@@ -27,6 +30,7 @@ export interface Project {
 
 export interface Builder {
   compileDefinitions: string[];
+  projects: Project[];
 
   addExecutable(name: string): Executable;
   addLibrary(name: string): Library;
@@ -42,6 +46,16 @@ abstract class BaseProject implements Project {
 
   constructor(protected builder: Builder, public name: string) {
     this.compileDefinitions.push(...this.builder.compileDefinitions);
+  }
+
+  public addDirectory(path: string) {
+    const files = FileHound.create()
+      .paths(join(cd, path))
+      //@ts-ignore
+      .match(["*.h", "*.cpp", "**/*.h", "**/*.cpp"])
+      .findSync();
+    this.sources.push(...files);
+    return this;
   }
 
   public addFile(path: string) {
@@ -61,7 +75,9 @@ abstract class BaseProject implements Project {
   }
 
   public link(library: string) {
-    this.linkedLibs.push(library);
+    const lib = this.builder.projects.find((p) => p.name === library);
+    if (lib === undefined) this.linkedLibs.push(library);
+    else this.linkedLibs.push(`${lib.name}.a`);
     return this;
   }
 
@@ -70,7 +86,12 @@ abstract class BaseProject implements Project {
 
 class Executable extends BaseProject {
   public override async build() {
-    let cmd = [this.sources.join(" ")];
+    const isLocalLib = (lib: string) => lib.endsWith(".a");
+    const isSystemLib = (lib: string) => !lib.endsWith(".a");
+    const systemLibs = this.linkedLibs.filter(isSystemLib);
+    const localLibs = this.linkedLibs.filter(isLocalLib).map((l) => `lib${l}`);
+
+    let cmd = [this.sources.join(" "), localLibs.join(" ")];
 
     if (this.compileDefinitions.length > 0)
       cmd.push(this.compileDefinitions.map((d) => `-D${d}`).join(" "));
@@ -78,8 +99,8 @@ class Executable extends BaseProject {
     if (this.includes.length > 0)
       cmd.push(this.includes.map((i) => `-I${i}`).join(" "));
 
-    if (this.linkedLibs.length > 0)
-      cmd.push(this.linkedLibs.map((l) => `-l${l}`).join(" "));
+    if (systemLibs.length > 0)
+      cmd.push(systemLibs.map((l) => `-l${l}`).join(" "));
 
     cmd.push("-o", `${this.name}`);
 
@@ -101,7 +122,7 @@ class Executable extends BaseProject {
 
 class Library extends BaseProject {
   public override async build() {
-    const cxxArgs = ["-o", `${this.name}.o`, "-x", "c++", "-"];
+    const cxxArgs = ["-c", "-o", `lib${this.name}.o`, "-x", "c++", "-"];
     const printfArgs = [`#include "%s"\n`, ...this.sources];
 
     console.log(
@@ -117,18 +138,37 @@ class Library extends BaseProject {
       env: process.env,
     });
 
-    const child = spawn("g++", cxxArgs, {
+    const cxx = spawn("g++", cxxArgs, {
       env: process.env,
       stdio: [printf.stdout, process.stdout, process.stderr],
     });
 
     await new Promise((resolve) => {
-      child.on("exit", (code) => {
+      cxx.on("exit", (code) => {
         if (code === 0) {
-          console.log("[CREATE]", `${this.name}.o`);
+          console.log("[CREATE]", `lib${this.name}.o`);
           resolve(code);
         } else {
-          throw new Error(`[FAILED] building ${this.name}.o, code ${code}`);
+          throw new Error(`[FAILED] compiling ${this.name}.o, code ${code}`);
+        }
+      });
+    });
+
+    const arArgs = ["rusU", `lib${this.name}.a`, `lib${this.name}.o`];
+    const ar = spawn("ar", arArgs, {
+      env: process.env,
+      stdio: [null, process.stdout, process.stderr],
+    });
+
+    await new Promise((resolve) => {
+      ar.on("exit", (code) => {
+        if (code === 0) {
+          console.log("[CREATE]", `lib${this.name}.a`);
+          resolve(code);
+        } else {
+          throw new Error(
+            `[FAILED] creating archive ${this.name}.a, code ${code}`
+          );
         }
       });
     });
@@ -139,8 +179,7 @@ class Library extends BaseProject {
 
 class DefaultBuilder implements Builder {
   public compileDefinitions: string[] = [];
-
-  private projects: Project[] = [];
+  public projects: Project[] = [];
 
   public addExecutable(name: string): Executable {
     let exe = new Executable(this, name);
