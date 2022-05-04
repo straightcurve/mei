@@ -1,0 +1,2 @@
+find . | rg ".o" | xargs -I{} shred -zuvn3 {}
+find . | rg ".h.gch" | xargs -I{} shred -zuvn3 {}

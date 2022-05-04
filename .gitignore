@@ -4,4 +4,5 @@ package-lock.json
 *.o
 *.a
 *.out
+test-exe
 dist/
