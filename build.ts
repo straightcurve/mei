@@ -1,10 +1,14 @@
 import { Builder } from "./index";
 
 export default function (builder: Builder) {
-  builder.addFile("**/*.h").addFile("**/*.cpp");
-
-  builder.define("USE_IMGUI").define("USE_RAYLIB_RENDERER").define("HELLO");
-  builder.include("extra/include");
-
-  builder.link("imgui").build();
+  builder
+    .addExecutable("test-exe")
+    .addFile("**/*.h")
+    .addFile("**/*.cpp")
+    .define("USE_IMGUI")
+    .define("USE_RAYLIB_RENDERER")
+    .define("HELLO")
+    .include("extra/include")
+    .link("imgui")
+    .build();
 }
