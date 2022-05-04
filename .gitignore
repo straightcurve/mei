@@ -5,4 +5,5 @@ package-lock.json
 *.a
 *.out
 test-exe
+exe-test*
 dist/
