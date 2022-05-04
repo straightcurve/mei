@@ -1,42 +1,39 @@
 # mei
 Simple C++ build system because I hate CMake
 
-## 1. Create new project
-```bash
-$ mkdir project-folder
-$ cd project-folder
-$ npm init -y
-$ npm i @sweetacid/mei
-```
+## Usage
 
-## 2. Run mei
+### Generate new project
 
 ```bash
-$ pwd
-/path-to-project-folder
-$ mei
+$ npx @sweetacid/mei --new mei-is-cool
+[CREATE] mei-is-cool/src/main.cpp
+[CREATE] mei-is-cool/build.ts
+[EXECUTE] g++ mei-is-cool/src/main.cpp -o mei-is-cool
+[CREATE] mei-is-cool
 ```
 
-## 3. Edit generated build.ts file
+### Edit generated build.ts file
 
 ```typescript
-//  project-folder/build.ts
+//  mei-is-cool/build.ts
 
 export default async function (builder: Builder) {
-  //  any .cpp and .h from current directory and subdirectories
-  builder.addFile("**/*.h").addFile("**/*.cpp");
-
-  builder.define("SOME_COMPILE_DEFINITION").define("HELLO_WORLD");
-  builder.include("relative-path-to-an-include-folder");
-
-  builder.link("some_system_library").build();
+  await builder
+    .addExecutable("mei-is-cool")
+    .addDirectory("src")
+    .define("MEI_IS_REALLY_COOL")
+    .build();
 }
 ```
 
-## 4. Run mei
+### Build
 
 ```bash
-$ pwd
-/path-to-project-folder
-$ mei
+$ npx @sweetacid/mei
+[EXECUTE] g++ mei-is-cool/src/main.cpp -DMEI_IS_REALLY_COOL -o mei-is-cool
+[CREATE] mei-is-cool
+
+$ ./mei-is-cool
+generated with mei :3
 ```
