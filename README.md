@@ -9,9 +9,10 @@ i still hate CMake but **mei** is now a generator for CMake configs
 - [ ] ~~Switch to clang~~
 - [ ] ~~Generate compile commands instead of compiling
   using [clang -Mj option](http://bcain-llvm.readthedocs.io/projects/clang/en/latest/ClangCommandLineReference/#cmdoption-clang-mj-arg)~~
-- [x] Other things I will find a need for
+- [ ] Other things I will find a need for
     - [x] Generate `CMakeLists.txt` files
     - [x] Support [xrepo](https://xrepo.xmake.io/) packages
+    - [ ] Avoid creating an npm project (ship types somehow)
 
 ## Usage
 
