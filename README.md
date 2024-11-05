@@ -16,8 +16,6 @@ i still hate CMake but **mei** is now a generator for CMake configs
 
 ## Usage
 
----
-
 ### Create a New Project
 
 To create a new project with the name **mei-is-cool**, run the following command:
