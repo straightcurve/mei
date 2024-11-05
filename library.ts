@@ -1,61 +1,18 @@
-import { spawn } from "child_process";
 import { BaseProject } from "./base";
+import { writeFileSync } from "fs";
+import { Project } from "./common";
 
 export class Library extends BaseProject {
+  public static: boolean = true;
+
+  public get kind(): Project["kind"] {
+    return "lib";
+  }
+
   public override async build() {
-    const cxxArgs = ["-c", "-o", `lib${this.name}.o`, "-x", "c++", "-"];
-    const printfArgs = [`#include "%s"\n`, ...this.sources];
+    this.builder.output.generate(this);
 
-    console.log(
-      "[EXECUTE]",
-      "printf",
-      [`'#include "%s"\\n'`, ...this.sources].join(" "),
-      "|",
-      "g++",
-      cxxArgs.join(" ")
-    );
-
-    const printf = spawn("printf", printfArgs, {
-      env: process.env,
-      cwd: this.builder.baseDir,
-    });
-
-    const cxx = spawn("g++", cxxArgs, {
-      env: process.env,
-      cwd: this.builder.baseDir,
-      stdio: [printf.stdout, process.stdout, process.stderr],
-    });
-
-    await new Promise((resolve) => {
-      cxx.on("exit", (code) => {
-        if (code === 0) {
-          console.log("[CREATE]", `lib${this.name}.o`);
-          resolve(code);
-        } else {
-          throw new Error(`[FAILED] compiling ${this.name}.o, code ${code}`);
-        }
-      });
-    });
-
-    const arArgs = ["rusU", `lib${this.name}.a`, `lib${this.name}.o`];
-    const ar = spawn("ar", arArgs, {
-      env: process.env,
-      cwd: this.builder.baseDir,
-      stdio: [null, process.stdout, process.stderr],
-    });
-
-    await new Promise((resolve) => {
-      ar.on("exit", (code) => {
-        if (code === 0) {
-          console.log("[CREATE]", `lib${this.name}.a`);
-          resolve(code);
-        } else {
-          throw new Error(
-            `[FAILED] creating archive ${this.name}.a, code ${code}`
-          );
-        }
-      });
-    });
+    writeFileSync(`CMakeLists.txt`, this.builder.output.text);
 
     return this.builder;
   }

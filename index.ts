@@ -7,6 +7,9 @@ import { Command } from "commander";
 
 import { DefaultBuilder } from "./builder";
 import { spawnSync } from "child_process";
+import { cmd } from "./utils";
+import { log } from "./log";
+import path from "node:path";
 
 export * from "./common";
 
@@ -35,6 +38,7 @@ if (runningAsScript) {
   const program = new Command();
   const options = program
     .option("-n, --new <path>", "create a new project at path")
+    .option("-c, --config", "init config in current directory")
     .parse()
     .opts();
 
@@ -54,7 +58,7 @@ if (runningAsScript) {
     const mainCppPath = join(srcPath, "main.cpp");
     if (!existsSync(mainCppPath)) {
       writeFileSync(mainCppPath, getExampleMainCpp());
-      console.log("[CREATE]", mainCppPath);
+      log.info("[CREATE]", path.relative(cd, mainCppPath));
     }
 
     spawnSync("npm", ["init", "-y"], {
@@ -66,17 +70,36 @@ if (runningAsScript) {
       cwd: projectPath,
       stdio: [null, null, process.stderr],
     });
+  } else if (options.config) {
+    const packageJsonPath = join(cd, "package.json");
+    if (!existsSync(packageJsonPath)) {
+      cmd("npm", ["init", "-y"], {
+        cwd: cd,
+        stdio: [null, null, process.stderr],
+      });
+
+      cmd("npm", ["install", "@sweetacid/mei"], {
+        cwd: cd,
+        stdio: [null, process.stdout, process.stderr],
+      });
+    }
   }
 
   const projectName = projectPath.slice(projectPath.lastIndexOf("/") + 1);
   const configPath = join(projectPath, "build.ts");
   if (!existsSync(configPath)) {
     writeFileSync(configPath, getDefaultConfig(projectName));
-    console.log("[CREATE]", configPath);
+    log.info("[CREATE]", path.relative(cd, configPath));
   }
 
   const config = require(configPath);
-  if (typeof config.default !== "function") process.exit(1);
+  if (typeof config.default !== "function") {
+    log.error(
+      "make sure you export a default function from the build.ts file!"
+    );
+
+    process.exit(1);
+  }
 
   config.default(new DefaultBuilder(projectPath));
 }
