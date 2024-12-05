@@ -50,7 +50,7 @@ export interface Builder {
 
 export type XRepoPackage = {
   version: string;
-  includedirs: string[];
+  includedirs?: string[];
   static: boolean;
   linkdirs: string[];
   links: string[];

@@ -51,11 +51,15 @@ export class CMakeEmitter extends TextEmitter {
       output.addLine(`)`);
     }
 
-    if (project.xrepoPackages.some((p) => p.includedirs.length)) {
+    if (project.xrepoPackages.some((p) => p.includedirs?.length) || 0) {
       output.addLine(
         `target_include_directories(${project.name} SYSTEM PRIVATE`
       );
       for (const pkg of project.xrepoPackages) {
+        if (!pkg.includedirs) {
+          continue;
+        }
+
         for (const includeDir of pkg.includedirs) {
           output.addLine(`  ${includeDir}`);
         }

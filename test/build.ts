@@ -17,6 +17,7 @@ const packages = [
   "stduuid",
   "dylib",
   "libuv",
+  "glob [header_only=true]",
 ];
 
 const defines = [
@@ -69,26 +70,25 @@ export default async function (builder: Builder) {
 
   const dawn = builder
     .addLibrary("dawn")
-    .include("dawn/src")
+    .include("extra")
     .addPackages(...packages)
     .define(...defines)
     .setCXXFlags(...cxxFlags)
     .setCXXStandard("20")
     .setLinkOptions("-m64")
     .link("stdc++", "m", "vulkan", "dbus-1")
-    .setPCXXHeader("dawn/src/dawn/pch.h")
     .addDirectory("extra");
   await dawn.build();
 
   const exe = builder
     .addExecutable("project_template")
     .dependOn(dawn)
-    .include("dawn/src", "src")
+    .include("extra", "exe")
     .addPackages(...packages)
     .define(...defines)
     .setCXXFlags(...cxxFlags)
     .setCXXStandard("20")
     .setLinkOptions("-m64")
-    .addDirectory("extra");
+    .addDirectory("exe");
   await exe.build();
 }
