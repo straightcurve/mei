@@ -60,7 +60,7 @@ include(\${CMAKE_BINARY_DIR}/xrepo.cmake)
     for (const pkg of project.xrepoPackages) {
       if (pkg.config.options.length > 0) {
         output.addLine(
-          `xrepo_package("${pkg.config.name}" CONFIGS "${pkg.config.options.join(",")}")`
+          `xrepo_package("${pkg.config.name} ${pkg.config.branch}" CONFIGS "${pkg.config.options.join(",")}")`
         );
       } else {
         output.addLine(`xrepo_package("${pkg.config.name}")`);

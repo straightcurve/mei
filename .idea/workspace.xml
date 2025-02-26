@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
+    <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="119" type="long" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="48aa7ac2-b48b-4575-b25d-06dd6e0b71f8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/cmake_emitter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmake_emitter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library.ts" beforeDir="false" afterPath="$PROJECT_DIR$/library.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CMakeLists.txt" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///home/a2/projects/mei/test/exe/main.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="gitIndexFs://b21c4999:/home/a2/projects/mei:/home/a2/projects/mei/test/exe/main.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="gitIndexFs://b21c4999:/home/a2/projects/mei:/home/a2/projects/mei/test/extra/src/extra.cpp" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2024" />
+    <option name="minorVersion" value="3.2" />
+    <option name="productBranch" value="Classic" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2oOuJEtlq5ipV9QAfO6k2Hm6Tbs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.west.config.association.type.startup.service&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/a2/projects/mei&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.test.executor&quot;: &quot;Debug&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/a2/projects/mei/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/a2/projects/mei/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test/extra/src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="test" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="48aa7ac2-b48b-4575-b25d-06dd6e0b71f8" name="Changes" comment="" />
+      <created>1730752869625</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730752869625</updated>
+      <workItem from="1730752870684" duration="9961000" />
+      <workItem from="1730807221759" duration="16521000" />
+      <workItem from="1730832867741" duration="275000" />
+      <workItem from="1732517892383" duration="79000" />
+      <workItem from="1732518036954" duration="947000" />
+      <workItem from="1732530159739" duration="24000" />
+      <workItem from="1733206330281" duration="7000" />
+      <workItem from="1733234165904" duration="6000" />
+      <workItem from="1733417715894" duration="134000" />
+      <workItem from="1733485976909" duration="26000" />
+      <workItem from="1733848548112" duration="7000" />
+      <workItem from="1733895743607" duration="69000" />
+      <workItem from="1733988709136" duration="4318000" />
+      <workItem from="1740536287424" duration="110000" />
+      <workItem from="1740565661602" duration="14458000" />
+      <workItem from="1740581183905" duration="612000" />
+      <workItem from="1740583447015" duration="698000" />
+      <workItem from="1740584154947" duration="61000" />
+    </task>
+    <task id="LOCAL-00001" summary="feat(generation): CMakeLists.txt support&#10;&#10;feat(generation): xrepo packages support">
+      <option name="closed" value="true" />
+      <created>1730832177736</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1730832177736</updated>
+    </task>
+    <task id="LOCAL-00002" summary="chore(project): update README.md">
+      <option name="closed" value="true" />
+      <created>1730832701728</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1730832701728</updated>
+    </task>
+    <task id="LOCAL-00003" summary="chore(project): update README.md">
+      <option name="closed" value="true" />
+      <created>1730832707529</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1730832707529</updated>
+    </task>
+    <task id="LOCAL-00004" summary="chore(project): update README.md">
+      <option name="closed" value="true" />
+      <created>1730832902928</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1730832902928</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat(xrepo): support for branches and config flags">
+      <option name="closed" value="true" />
+      <created>1733417794721</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1733417794721</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat(xrepo): better support for packages">
+      <option name="closed" value="true" />
+      <created>1740583870311</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1740583870311</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat(xrepo): better support for packages">
+      <option name="closed" value="true" />
+      <created>1740583893784</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1740583893784</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticReloadCMake value="true" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat(generation): CMakeLists.txt support&#10;&#10;feat(generation): xrepo packages support" />
+    <MESSAGE value="chore(project): update README.md" />
+    <MESSAGE value="feat(xrepo): support for branches and config flags" />
+    <MESSAGE value="feat(xrepo): better support for packages" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(xrepo): better support for packages" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
