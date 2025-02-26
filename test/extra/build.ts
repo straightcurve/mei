@@ -1,6 +1,6 @@
-import { Builder } from "../index";
+import { Builder } from "../../index";
 
-const packages = ["glfw", "imgui docking", "glob [header_only=true]"];
+const packages = ["glfw", "glob [header_only=true]"];
 
 const defines = [
   "GLFW_INCLUDE_VULKAN",
@@ -50,18 +50,15 @@ export default async function (builder: Builder) {
     );
   }
 
-  const dawn = builder.addLibrary("dawn").withSubdirectory("extra");
-  await dawn.build();
-
-  const exe = builder
-    .addExecutable("project_template")
-    .dependOn(dawn)
-    .include("extra", "exe")
+  const dawn = builder
+    .addLibrary("dawn")
+    .include("include", "src")
     .addPackages(...packages)
     .define(...defines)
     .setCXXFlags(...cxxFlags)
     .setCXXStandard("20")
     .setLinkOptions("-m64")
-    .addDirectory("exe");
-  await exe.build();
+    .link("stdc++", "m", "vulkan", "dbus-1")
+    .addDirectory("src");
+  await dawn.build();
 }

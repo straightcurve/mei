@@ -3,6 +3,7 @@ import { Builder, Project } from "./common";
 import { Executable } from "./executable";
 import { Library } from "./library";
 import { CMakeEmitter } from "./cmake_emitter";
+import { log } from "./log";
 
 export class DefaultBuilder implements Builder {
   public compileDefinitions: string[] = [];
@@ -13,6 +14,9 @@ export class DefaultBuilder implements Builder {
     this.output = new CMakeEmitter(this);
     this.output.addLine(`cmake_minimum_required(VERSION 3.15.0)`);
     this.output.addLine(`cmake_policy(SET CMP0091 NEW)`);
+    this.output.addLine(`project(mei_project)`);
+    this.output.newLine();
+    this.output.emitXMakeDownloadScript();
   }
 
   public addExecutable(name: string): Executable {
@@ -32,7 +36,7 @@ export class DefaultBuilder implements Builder {
     return this;
   }
 
-  public build(): void {
-    for (let i = 0; i < this.projects.length; i++) this.projects[i].build();
+  public async build() {
+    log.error("not implemented");
   }
 }

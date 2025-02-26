@@ -53,6 +53,10 @@ export abstract class BaseProject implements Project {
     return this._pCXXHeader;
   }
 
+  public get subdirectory(): string | undefined {
+    return this._subdirectory;
+  }
+
   /**
    * @example "20"
    */
@@ -76,6 +80,12 @@ export abstract class BaseProject implements Project {
     return this;
   }
 
+  public withSubdirectory(value: string): Project {
+    // this._subdirectory = join(this.builder.baseDir, path);
+    this._subdirectory = value;
+    return this;
+  }
+
   public abstract build(): Promise<Builder>;
 
   public addDirectory(path: string) {
@@ -84,7 +94,9 @@ export abstract class BaseProject implements Project {
       //@ts-ignore
       .match(["*.cpp", "**/*.cpp"])
       .findSync();
-    this._sources.push(...files);
+    this._sources.push(
+      ...files.map((f) => f.slice(this.builder.baseDir.length + 1))
+    );
     return this;
   }
 
@@ -93,14 +105,15 @@ export abstract class BaseProject implements Project {
       .paths(this.builder.baseDir)
       .match(path)
       .findSync();
-    this._sources.push(...files);
+    this._sources.push(
+      ...files.map((f) => f.slice(this.builder.baseDir.length + 1))
+    );
     return this;
   }
 
   public addPackages(...names: string[]) {
     for (const name of names) {
       const pkg = xrepo.fetch(name);
-      pkg.name = name;
 
       this._xrepoPackages.push(pkg);
     }
@@ -145,4 +158,5 @@ export abstract class BaseProject implements Project {
   protected _dependencies: Project[] = [];
   protected _cxxStandard: string = "";
   protected _pCXXHeader: string = "";
+  protected _subdirectory?: string = "";
 }

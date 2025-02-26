@@ -35,6 +35,10 @@ int main() {
 
 const runningAsScript = require.main === module;
 if (runningAsScript) {
+  bootstrap();
+}
+
+async function bootstrap() {
   const program = new Command();
   const options = program
     .option("-n, --new <path>", "create a new project at path")
@@ -101,5 +105,5 @@ if (runningAsScript) {
     process.exit(1);
   }
 
-  config.default(new DefaultBuilder(projectPath));
+  await config.default(new DefaultBuilder(projectPath));
 }

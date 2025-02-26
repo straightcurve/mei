@@ -8,6 +8,12 @@ export class TextEmitter {
     return this;
   }
 
+  public newLine() {
+    this._output += "\n";
+
+    return this;
+  }
+
   public get text() {
     return this._output;
   }

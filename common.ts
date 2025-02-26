@@ -7,6 +7,7 @@ export interface Project {
   cxxStandard: string;
   cxxFlags: string[];
   pCXXHeader: string;
+  subdirectory?: string;
 
   setCXXFlags(...flags: string[]): Project;
 
@@ -17,6 +18,8 @@ export interface Project {
   setPCXXHeader(value: string): Project;
 
   addDirectory(path: string): Project;
+
+  withSubdirectory(path: string): Project;
 
   addFile(path: string): Project;
 
@@ -45,7 +48,7 @@ export interface Builder {
 
   define(name: string): Builder;
 
-  build(): void;
+  build(): Promise<void>;
 }
 
 export type XRepoPackage = {
@@ -55,5 +58,9 @@ export type XRepoPackage = {
   linkdirs: string[];
   links: string[];
   libfiles: string[];
-  name: string;
+  config: {
+    name: string;
+    branch: string | null | undefined;
+    options: string[];
+  };
 };
