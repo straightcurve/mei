@@ -145,6 +145,7 @@
       <workItem from="1740581183905" duration="612000" />
       <workItem from="1740583447015" duration="698000" />
       <workItem from="1740584154947" duration="61000" />
+      <workItem from="1740584254819" duration="785000" />
     </task>
     <task id="LOCAL-00001" summary="feat(generation): CMakeLists.txt support&#10;&#10;feat(generation): xrepo packages support">
       <option name="closed" value="true" />
@@ -202,7 +203,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740583893784</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fix(xrepo): fetch specific git branch">
+      <option name="closed" value="true" />
+      <created>1740585006219</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1740585006219</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +238,8 @@
     <MESSAGE value="chore(project): update README.md" />
     <MESSAGE value="feat(xrepo): support for branches and config flags" />
     <MESSAGE value="feat(xrepo): better support for packages" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(xrepo): better support for packages" />
+    <MESSAGE value="fix(xrepo): fetch specific git branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(xrepo): fetch specific git branch" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
