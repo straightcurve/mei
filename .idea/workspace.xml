@@ -146,6 +146,7 @@
       <workItem from="1740583447015" duration="698000" />
       <workItem from="1740584154947" duration="61000" />
       <workItem from="1740584254819" duration="785000" />
+      <workItem from="1740674472741" duration="2537000" />
     </task>
     <task id="LOCAL-00001" summary="feat(generation): CMakeLists.txt support&#10;&#10;feat(generation): xrepo packages support">
       <option name="closed" value="true" />
@@ -211,7 +212,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740585006219</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fix(dependencies): add subdirs only when necessary">
+      <option name="closed" value="true" />
+      <created>1740677253705</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1740677253705</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,7 +248,8 @@
     <MESSAGE value="feat(xrepo): support for branches and config flags" />
     <MESSAGE value="feat(xrepo): better support for packages" />
     <MESSAGE value="fix(xrepo): fetch specific git branch" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(xrepo): fetch specific git branch" />
+    <MESSAGE value="fix(dependencies): add subdirs only when necessary" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(dependencies): add subdirs only when necessary" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

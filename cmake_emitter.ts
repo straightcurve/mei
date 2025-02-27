@@ -58,13 +58,19 @@ include(\${CMAKE_BINARY_DIR}/xrepo.cmake)
     }
 
     for (const pkg of project.xrepoPackages) {
+      output.addText(`xrepo_package("${pkg.config.name}`);
+
+      if (pkg.config.branch) {
+        output.addText(` ${pkg.config.branch}`);
+      }
+
       if (pkg.config.options.length > 0) {
         output.addLine(
-          `xrepo_package("${pkg.config.name} ${pkg.config.branch}" CONFIGS "${pkg.config.options.join(",")}")`
+          `" CONFIGS "${pkg.config.options.join(",")}`
         );
-      } else {
-        output.addLine(`xrepo_package("${pkg.config.name}")`);
       }
+
+      output.addLine(`")`);
     }
 
     if (project.cxxStandard) {
