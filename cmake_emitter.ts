@@ -65,7 +65,7 @@ include(\${CMAKE_BINARY_DIR}/xrepo.cmake)
       }
 
       if (pkg.config.options.length > 0) {
-        output.addLine(
+        output.addText(
           `" CONFIGS "${pkg.config.options.join(",")}`
         );
       }

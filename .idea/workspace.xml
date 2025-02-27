@@ -147,6 +147,7 @@
       <workItem from="1740584154947" duration="61000" />
       <workItem from="1740584254819" duration="785000" />
       <workItem from="1740674472741" duration="2537000" />
+      <workItem from="1740677403599" duration="675000" />
     </task>
     <task id="LOCAL-00001" summary="feat(generation): CMakeLists.txt support&#10;&#10;feat(generation): xrepo packages support">
       <option name="closed" value="true" />
@@ -220,7 +221,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740677253705</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fix(xrepo): don't emit empty branches">
+      <option name="closed" value="true" />
+      <created>1740678049092</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1740678049092</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,7 +258,8 @@
     <MESSAGE value="feat(xrepo): better support for packages" />
     <MESSAGE value="fix(xrepo): fetch specific git branch" />
     <MESSAGE value="fix(dependencies): add subdirs only when necessary" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(dependencies): add subdirs only when necessary" />
+    <MESSAGE value="fix(xrepo): don't emit empty branches" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(xrepo): don't emit empty branches" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
