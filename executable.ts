@@ -11,7 +11,9 @@ export class Executable extends BaseProject {
   public override async build() {
     for (let i = 0; i < this.dependencies.length; i++) {
       for (const dep of this.dependencies) {
-        this.builder.output.addLine(`add_subdirectory(${dep.subdirectory})`);
+        if (dep.subdirectory) {
+          this.builder.output.addLine(`add_subdirectory(${dep.subdirectory})`);
+        }
       }
     }
 
