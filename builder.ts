@@ -15,6 +15,7 @@ export class DefaultBuilder implements Builder {
     this.output.addLine(`cmake_minimum_required(VERSION 3.15.0)`);
     this.output.addLine(`cmake_policy(SET CMP0091 NEW)`);
     this.output.addLine(`project(mei_project)`);
+    this.output.addLine("set(CMAKE_EXPORT_COMPILE_COMMANDS ON)");
     this.output.newLine();
     this.output.emitXMakeDownloadScript();
   }
